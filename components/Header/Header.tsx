@@ -2,6 +2,7 @@
 
 import css from "./Header.module.css";
 import Link from "next/link";
+import { AuthNavigation } from "@/components/AuthNavigation/AuthNavigation";
 
 // components/Header/Header.tsx
 
@@ -23,6 +24,14 @@ const Header = () => {
               Notes
             </Link>
           </li>
+          {/* <li>
+            <Link
+              className={css.navigationLink}
+              href="components/AuthNavigation/AuthNavigation.tsx."
+            >
+              {AuthNavigation}
+            </Link>
+          </li> */}
         </ul>
       </nav>
     </header>

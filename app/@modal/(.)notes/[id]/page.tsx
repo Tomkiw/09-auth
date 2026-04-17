@@ -1,5 +1,5 @@
 // app/notes/filter/@modal/(..)[id]/page.tsx
-import { fetchNoteById } from "@/lib/api";
+import { fetchNoteById } from "@/lib/api/api";
 import {
   QueryClient,
   HydrationBoundary,

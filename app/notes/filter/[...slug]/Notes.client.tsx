@@ -2,7 +2,7 @@
 
 import { useDebouncedCallback } from "use-debounce";
 import { useQuery, keepPreviousData } from "@tanstack/react-query";
-import { fetchNotes } from "@/lib/api";
+import { fetchNotes } from "@/lib/api/api";
 import css from "./NotePage.module.css";
 
 import Pagination from "@/components/Pagination/Pagination";
