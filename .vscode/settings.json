@@ -1,3 +1,6 @@
 {
-  "cSpell.words": ["ЗРОБЛЕНО"]
+  "cSpell.words": ["ЗРОБЛЕНО"],
+  "github.copilot.enable": {
+    "*": false
+  }
 }

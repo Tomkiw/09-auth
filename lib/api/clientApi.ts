@@ -79,12 +79,12 @@ export const getMe = async () => {
   return data;
 };
 
-type UserResponse = {
-  email?: string;
-  username?: string;
-};
+// type UserResponse = {
+//   email?: string;
+//   username?: string;
+// };
 
-export const updateMe = async (data: User): Promise<UserResponse> => {
+export const updateMe = async (data: User): Promise<User> => {
   const response = await nextServer.patch<User>(`/users/me`, data);
   return response.data;
 };

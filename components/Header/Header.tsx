@@ -2,9 +2,7 @@
 
 import css from "./Header.module.css";
 import Link from "next/link";
-import { AuthNavigation } from "@/components/AuthNavigation/AuthNavigation";
-
-// components/Header/Header.tsx
+import AuthNavigation from "@/components/AuthNavigation/AuthNavigation";
 
 const Header = () => {
   return (
@@ -24,14 +22,7 @@ const Header = () => {
               Notes
             </Link>
           </li>
-          {/* <li>
-            <Link
-              className={css.navigationLink}
-              href="components/AuthNavigation/AuthNavigation.tsx."
-            >
-              {AuthNavigation}
-            </Link>
-          </li> */}
+          <AuthNavigation />
         </ul>
       </nav>
     </header>
