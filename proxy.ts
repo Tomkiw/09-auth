@@ -45,7 +45,7 @@ export async function proxy(request: NextRequest) {
         // Якщо сесія все ще активна:
         // для публічного маршруту — виконуємо редірект на головну.
         if (isPublicRoute) {
-          return NextResponse.redirect(new URL("/", request.url), {
+          return NextResponse.redirect(new URL("/profile", request.url), {
             headers: {
               Cookie: cookieStore.toString(),
             },
