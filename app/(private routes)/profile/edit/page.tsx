@@ -30,6 +30,10 @@ const EditPage = () => {
     mutation.mutate({ username });
   };
 
+  const handleCancel = () => {
+    router.push("/profile");
+  };
+
   return (
     <main className={css.mainContent}>
       <div className={css.profileCard}>
@@ -62,9 +66,7 @@ const EditPage = () => {
               Save
             </button>
             <button
-              onClick={(e: React.MouseEvent<HTMLButtonElement>) =>
-                router.back()
-              }
+              onClick={handleCancel}
               type="button"
               className={css.cancelButton}
             >
