@@ -24,6 +24,15 @@ export const checkSession = async () => {
   return response.data;
 };
 
+export const checkServerSession = async () => {
+  const cookiesStore = await cookies();
+
+  const response = await nextServer.get<CheckSession>("/auth/session", {
+    headers: { Cookie: cookiesStore.toString() },
+  });
+  return response;
+};
+
 export const fetchNotes = async ({
   page,
   perPage,

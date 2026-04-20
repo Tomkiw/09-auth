@@ -29,20 +29,23 @@ const AuthProvider = ({ children }: Props) => {
 
   useEffect(() => {
     const fetchUser = async () => {
-      //check sesion
-      const isAuthenticade = await checkSession();
-      if (isAuthenticade) {
-        // Якщо сесія валідна — отримуємо користувача
-        const user = await getMe();
-        setLoading(false);
-        if (user) setUser(user);
-      } else {
-        // Якщо сесія невалідна — чистимо стан
-        clearIsAuthenticated();
-        setLoading(false);
-        if (isPrivate) {
-          router.push("/sign-in");
+      try {
+        //check sesion
+        const isAuthenticated = await checkSession();
+
+        if (isAuthenticated.success) {
+          // Якщо сесія валідна — отримуємо користувача
+          const user = await getMe();
+          if (user) setUser(user);
+        } else {
+          // Якщо сесія невалідна — чистимо стан
+          clearIsAuthenticated();
+          if (isPrivate) {
+            router.push("/sign-in");
+          }
         }
+      } finally {
+        setLoading(false);
       }
     };
     fetchUser();

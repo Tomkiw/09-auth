@@ -3,7 +3,7 @@ import { nextServer } from "@/lib/api/api";
 import type { Note, CreateNote } from "@/types/note";
 import { User } from "@/types/user";
 
-type CheckSession = User | null;
+type CheckSession = { success: boolean };
 
 export interface FetchNotesResponse {
   notes: Note[];
@@ -78,11 +78,6 @@ export const getMe = async () => {
   const { data } = await nextServer.get<User>(`/users/me`);
   return data;
 };
-
-// type UserResponse = {
-//   email?: string;
-//   username?: string;
-// };
 
 export const updateMe = async (data: User): Promise<User> => {
   const response = await nextServer.patch<User>(`/users/me`, data);
