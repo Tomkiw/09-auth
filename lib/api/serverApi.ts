@@ -15,15 +15,6 @@ export const getMe = async (): Promise<User> => {
   return response.data;
 };
 
-export const checkSession = async () => {
-  const cookiesStore = await cookies();
-
-  const response = await nextServer.get<CheckSession>(`/auth/session`, {
-    headers: { Cookie: cookiesStore.toString() },
-  });
-  return response.data;
-};
-
 export const checkServerSession = async () => {
   const cookiesStore = await cookies();
 

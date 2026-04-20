@@ -17,6 +17,15 @@ export interface FetchNotesParams {
   tag?: string;
 }
 
+export interface AuthRequest {
+  email: string;
+  password: string;
+}
+
+type UpdateMeRequest = {
+  username: string;
+};
+
 export const fetchNotes = async ({
   page,
   perPage,
@@ -50,12 +59,7 @@ export const fetchNoteById = async (id: string): Promise<Note> => {
   return response.data;
 };
 
-export interface AuthRequest {
-  email: string;
-  password: string;
-}
-
-export const registerUser = async (data: AuthRequest) => {
+export const register = async (data: AuthRequest) => {
   const response = await nextServer.post<User>(`/auth/register`, data);
   return response.data;
 };
@@ -79,7 +83,7 @@ export const getMe = async () => {
   return data;
 };
 
-export const updateMe = async (data: User): Promise<User> => {
+export const updateMe = async (data: UpdateMeRequest): Promise<User> => {
   const response = await nextServer.patch<User>(`/users/me`, data);
   return response.data;
 };

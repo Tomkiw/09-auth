@@ -2,7 +2,7 @@
 import { useMutation } from "@tanstack/react-query";
 import { useState } from "react";
 import { useRouter } from "next/navigation";
-import { registerUser } from "@/lib/api/clientApi";
+import { register } from "@/lib/api/clientApi";
 import css from "./SignUpPage.module.css";
 import { useAuthStore } from "@/lib/store/authStore";
 
@@ -12,7 +12,7 @@ const SignUpPage = () => {
   const setUser = useAuthStore((state) => state.setUser);
 
   const mutation = useMutation({
-    mutationFn: registerUser,
+    mutationFn: register,
     onSuccess: (user) => {
       router.push("/profile");
       setUser(user);

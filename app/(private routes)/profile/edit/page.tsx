@@ -12,11 +12,11 @@ const EditPage = () => {
   const user = useAuthStore((state) => state.user);
   const setUser = useAuthStore((state) => state.setUser);
 
-  const mutatin = useMutation({
+  const mutation = useMutation({
     mutationFn: updateMe,
     onSuccess: (user) => {
       router.push("/profile");
-      setUser(user); //ось тут помилка
+      setUser(user);
     },
 
     onError: (err) => {
@@ -27,11 +27,7 @@ const EditPage = () => {
   const handleSubmit = async (formdata: FormData) => {
     const username = formdata.get("username") as string;
 
-    mutatin.mutate({
-      username,
-      email: user?.email ?? "",
-      avatar: user?.avatar ?? "",
-    });
+    mutation.mutate({ username });
   };
 
   return (
@@ -66,7 +62,9 @@ const EditPage = () => {
               Save
             </button>
             <button
-              onClick={() => router.back()}
+              onClick={(e: React.MouseEvent<HTMLButtonElement>) =>
+                router.back()
+              }
               type="button"
               className={css.cancelButton}
             >
